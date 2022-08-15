@@ -1,26 +1,37 @@
 import { useState, useEffect } from 'react';
 
-const Formulario = () => {
+const Formulario = ({ pacientes, setPacientes }) => {
   const [nombre, setNombre] = useState('');
   const [propietario, setPropietario] = useState('');
   const [email, setEmail] = useState('');
   const [fecha, setFecha] = useState('');
   const [sintomas, setSintomas] = useState('');
-
   const [error, setError] = useState(false)
-
   const handleSubmit = (e) => {
     e.preventDefault();
-
     //Validación de Formulario
     if ([nombre, propietario, email, fecha, sintomas].includes('')) {
-      console.log('Hay al menos un campo vacío')
       setError(true)
       return;
     }
-    // Se actualiza con false para que cuando se recargue no aprezca mensaje
+    // Se actualiza con false para que cuando se recargue no aparezca mensaje
     setError(false)
 
+    //Objeto de Paciente
+    const objetoPaciente = {
+      nombre,
+      propietario,
+      email,
+      fecha,
+      sintomas
+    }
+    setPacientes([...pacientes, objetoPaciente]);
+    //Limpiar el form
+    setNombre('')
+    setPropietario('')
+    setEmail('')
+    setFecha('')
+    setSintomas('')
   }
 
   return (
