@@ -1,4 +1,4 @@
-import Paciente from "./components/Paciente"
+import Paciente from "./Paciente"
 
 const ListadoPacientes = ({ pacientes, setPaciente }) => {
 
@@ -7,7 +7,7 @@ const ListadoPacientes = ({ pacientes, setPaciente }) => {
 
             {pacientes && pacientes.length ? (
                 <>
-                    <h2 className="font-black text-3xl text-center  ">Listado Pacientes</h2>
+                    <h2 className="font-black text-3xl text-center">Listado Pacientes</h2>
                     <p className="text-xl mt-5 mb-10 text-center">
                         Administra tus {''}
                         <span className="text-indigo-600 font-bold  ">Pacientes y Citas</span>
@@ -17,6 +17,7 @@ const ListadoPacientes = ({ pacientes, setPaciente }) => {
                         <Paciente
                             key={paciente.id}
                             paciente={paciente}
+                            setPaciente={setPaciente}
                         />
                     )
                     )}

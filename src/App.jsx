@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import Header from "./components/Header"
 import Formulario from "./components/Formulario"
-import ListadoPacientes from "./ListadoPacientes"
+import ListadoPacientes from "./components/ListadoPacientes"
 
 function App() {
 
   const [pacientes, setPacientes] = useState([]);
-  const [paciente, setPaciente] =useState ({});
+  const [paciente, setPaciente] = useState({});
 
 
   return (
@@ -18,10 +18,11 @@ function App() {
         <Formulario
           pacientes={pacientes}
           setPacientes={setPacientes}
+          paciente={paciente}
         />
-        <ListadoPacientes 
-        pacientes={pacientes}
-        setPaciente={setPaciente}
+        <ListadoPacientes
+          pacientes={pacientes}
+          setPaciente={setPaciente}
         />
       </div>
     </div>
